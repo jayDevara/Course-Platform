@@ -1,0 +1,24 @@
+databases:
+  - name: course-db
+    plan: free
+
+services:
+  - type: web
+    name: course-platform
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn cfehome.wsgi:application"  # ✅ remove "src." prefix
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: course-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.12
+      - key: DJANGO_SETTINGS_MODULE
+        value: cfehome.settings      # ✅ required to avoid settings error
+      - key: DEBUG
+        value: False                 # optional but recommended
