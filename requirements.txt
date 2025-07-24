@@ -1,0 +1,10 @@
+Django>=5.1,<5.2
+pillow
+cloudinary
+python-decouple
+django-htmx
+django-tailwind[reload]
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
