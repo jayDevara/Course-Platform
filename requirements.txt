@@ -1,6 +1,0 @@
-Django>=5.1,<5.2
-pillow
-cloudinary
-python-decouple
-django-htmx
-django-tailwind[reload]
